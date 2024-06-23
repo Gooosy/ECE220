@@ -1,0 +1,13 @@
+	.ORIG x5000
+
+	; sample table for FILL_STACK
+	.FILL x0005
+	.FILL x0000
+	.FILL x0006
+	.FILL x0002
+	.FILL x0007
+	.FILL xFFFF
+	.FILL x0000
+	.FILL x0005
+
+	.END

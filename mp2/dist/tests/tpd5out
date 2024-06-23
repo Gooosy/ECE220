@@ -1,0 +1,40 @@
+
+Welcome to the LC-3 simulator.
+
+The contents of the LC-3 tools distribution, including sources, management
+tools, and data, are Copyright (c) 2003 Steven S. Lumetta.
+
+The LC-3 tools distribution is free software covered by the GNU General
+Public License, and you are welcome to modify it and/or distribute copies
+of it under certain conditions.  The file COPYING (distributed with the
+tools) specifies those conditions.  There is absolutely no warranty for
+the LC-3 tools distribution, as described in the file NO_WARRANTY (also
+distributed with the tools).
+
+Have fun.
+
+
+--- halting the LC-3 ---
+
+PC=x0494 IR=xB1AE PSR=x0400 (ZERO)
+R0=x0000 R1=x7FFF R2=x0000 R3=x0000 R4=x0000 R5=x0000 R6=x0000 R7=x0490 
+                   x0494 x0FF9 BRNZP TRAP_HALT
+Loaded "graph2index.obj" and set PC to x7000
+Loaded "graph2heap.obj" and set PC to x7FFF
+Loaded "graph2dist.obj" and set PC to x6000
+Loaded "mp2.obj" and set PC to x3000
+Loaded "test_pd.obj" and set PC to x3F80
+Set breakpoint at x3F8B.
+Set R0 to x0000.
+The LC-3 hit a breakpoint...
+PC=x3F8B IR=xC1C0 PSR=x0200 (POSITIVE)
+R0=x0000 R1=xBEEF R2=xBEEF R3=xBEEF R4=xBEEF R5=xBEEF R6=xBEEF R7=x3F8B 
+B          THEHALT x3F8B xF025 HALT  
+6FFC:           0000 0000 0007 0008 0009 000A 0005 000C 000D 000E    ..........
+7008: 000F 0010 0011 0012 0013 0014 0015 FFFF FFFF FFFF 0016 0017  ............
+7014: FFFF FFFF 000B 0001 0000 0003 0004 0002 0006 FFFF 0000 0000  ............
+7020: 0000                                                         .           
+7FF8:                               0000 0018 0018 0017 001B 0019        ......
+8004: 001A 0004 001C 0000 0001 0002 0003 0016 0005 0006 0007 0008  ............
+8010: 0009 000A 000B 000C 000D 000E 0012 0013 0000 0000 0000 0000  ............
+801C: 0000 0000 0000 0000 0000                                     .....       

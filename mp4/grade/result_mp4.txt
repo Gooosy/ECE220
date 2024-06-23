@@ -1,0 +1,13 @@
+Functionality (35%)
+ 35/35 - Function generates the correct output based on the swimmers' lane preferences.
+Style (50%)
+ 20/20 - No matching printf statements—any identical results are combined using program logic.
+ 15/15 - Up to four local variables are used to record swimmer compatibility—for example, can
+            swimmer A swim in the same trial with swimmer B. You do not need more than four of
+            these, so full points only if you cover all conditions with four or fewer.
+ 15/15 - Code uses no more than five conditional statements (if statements) to identify the
+            correct output. (Each case of a switch statement counts as one if statement.)
+Comments, Clarity, and Write-up (15%)
+ 5/5 - introductory paragraph explaining what you did (even if it's just the required work)
+ 10/10 - code is clear and well-commented, and compilation generates no warnings (note: any
+            warning means 0 points here)

@@ -1,0 +1,8 @@
+9 8 7 6 5 4 3 2 1 0
+What's on the stack now?
+
+"a" reversed is "a" (length 32760)
+9 8 7 6 5 4 3 2 1 0
+What's on the stack now?
+
+"b" reversed is "b" (length 32760)

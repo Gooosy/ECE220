@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "__bit_reference": "c",
+        "__node_handle": "c",
+        "bitset": "c",
+        "deque": "c",
+        "__memory": "c",
+        "limits": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "tuple": "c",
+        "vector": "c",
+        "chrono": "c",
+        "random": "c",
+        "type_traits": "c",
+        "charconv": "c",
+        "format": "c",
+        "array": "c",
+        "functional": "c",
+        "utility": "c",
+        "ios": "c"
+    }
+}

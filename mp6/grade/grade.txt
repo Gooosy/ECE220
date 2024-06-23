@@ -1,0 +1,8 @@
+mp6 result for siyuan123
+compile success, no warnings
+Score of extract_watermark is 15/15
+Score of add_watermark is 35/35
+Score of reconstruct_watermark is 35/35
+
+5/5---introductory paragraph
+10/10---code is clear and well-commented, no warning (any warning means zero here)

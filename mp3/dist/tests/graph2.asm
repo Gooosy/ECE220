@@ -1,0 +1,79 @@
+	.ORIG x3FFE
+
+	.FILL x03	; start at node 3 by default
+
+	.FILL x08	; 8 nodes in graph
+
+	.FILL x7FFF	; node 0 edges
+	.FILL x04
+	.FILL x1100
+	.FILL x1200
+	.FILL x1300
+	.FILL x1400
+	.FILL x03
+	.FILL x1500
+
+	.FILL x1600	; node 1 edges
+	.FILL x7FFF
+	.FILL x04
+	.FILL x1700
+	.FILL x1800
+	.FILL x1900
+	.FILL x01
+	.FILL x1A00
+
+	.FILL x1B00	; node 2 edges
+	.FILL x1C00
+	.FILL x7FFF
+	.FILL x03
+	.FILL x1D00
+	.FILL x1E00
+	.FILL x1F00
+	.FILL x2000
+
+	.FILL x2100	; node 3 edges
+	.FILL x2200
+	.FILL x2300
+	.FILL x7FFF
+	.FILL x02
+	.FILL x2400
+	.FILL x01
+	.FILL x2500
+
+	.FILL x2600	; node 4 edges
+	.FILL x2700
+	.FILL x2800
+	.FILL x2900
+	.FILL x7FFF
+	.FILL x02
+	.FILL x2A00
+	.FILL x2B00
+
+	.FILL x02	; node 5 edges
+	.FILL x2C00
+	.FILL x2D00
+	.FILL x2E00
+	.FILL x2F00
+	.FILL x7FFF
+	.FILL x3000
+	.FILL x01
+
+	.FILL x05	; node 6 edges
+	.FILL x3100
+	.FILL x02
+	.FILL x3200
+	.FILL x02
+	.FILL x04
+	.FILL x7FFF
+	.FILL x3300
+
+	.FILL x3400	; node 7 edges
+	.FILL x3500
+	.FILL x3600
+	.FILL x3700
+	.FILL x05
+	.FILL x3800
+	.FILL x3900
+	.FILL x7FFF
+
+	.END

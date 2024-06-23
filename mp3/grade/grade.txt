@@ -1,0 +1,21 @@
+Functionality (70%)
+ DIJKSTRA
+o 5/5 - initializes tables correctly
+o 10/10 - inserts source node correctly into heap
+o 5/5 - uses GET_CLOSEST to obtain next closest node and terminates correctly when heap is empty
+o 5/5 - skips missing (distance "infinity") arcs
+o 5/5 - computes distance through node being explored correctly
+o 5/5 - compares distance with current distance (including "infinity") correctly
+o 5/5 - relaxes distance correctly
+o 5/5 - inserts node at end of heap correctly when necessary
+o 5/5 - calls PERCOLATE_UP correctly
+ program
+o 5/5 - calls DIJKSTRA correctly
+o 10/10 - uses FILL_STACK and PRINT_PATH correctly to print all shortest paths
+o 5/5 - terminates correctly
+
+Comments, Clarity, and Write-up (30%)
+ 10/10 - subroutine and program each have a paragraph explaining the purpose and interface
+(these are given to you; you just need to document your work)
+ 10/10 - subroutine includes a table explaining how each register is used
+ 10/10 - code is clear and well-commented

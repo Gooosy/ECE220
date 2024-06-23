@@ -1,0 +1,10 @@
+f graph2index
+f graph2heap
+f graph2dist
+f mp2
+f test_pd
+b s thehalt
+r r0 0000
+c
+d 6FFE 7020
+d 7FFE 8020

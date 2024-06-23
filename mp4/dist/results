@@ -1,0 +1,243 @@
+trying "swimmeet 1 1 1 1"
+A/B/C/D
+
+trying "swimmeet 1 1 1 2"
+AD/B/C
+
+trying "swimmeet 1 1 1 3"
+AD/B/C
+
+trying "swimmeet 1 1 2 1"
+AC/B/D
+
+trying "swimmeet 1 1 2 2"
+AC/BD
+
+trying "swimmeet 1 1 2 3"
+AC/BD
+
+trying "swimmeet 1 1 3 1"
+AC/B/D
+
+trying "swimmeet 1 1 3 2"
+AC/BD
+
+trying "swimmeet 1 1 3 3"
+AC/BD
+
+trying "swimmeet 1 2 1 1"
+AB/C/D
+
+trying "swimmeet 1 2 1 2"
+AB/CD
+
+trying "swimmeet 1 2 1 3"
+AB/CD
+
+trying "swimmeet 1 2 2 1"
+AB/CD
+
+trying "swimmeet 1 2 2 2"
+AB/C/D
+
+trying "swimmeet 1 2 2 3"
+AB/CD
+
+trying "swimmeet 1 2 3 1"
+AB/CD
+
+trying "swimmeet 1 2 3 2"
+AB/CD
+
+trying "swimmeet 1 2 3 3"
+AB/CD
+
+trying "swimmeet 1 3 1 1"
+AB/C/D
+
+trying "swimmeet 1 3 1 2"
+AB/CD
+
+trying "swimmeet 1 3 1 3"
+AB/CD
+
+trying "swimmeet 1 3 2 1"
+AB/CD
+
+trying "swimmeet 1 3 2 2"
+AC/BD
+
+trying "swimmeet 1 3 2 3"
+AB/CD
+
+trying "swimmeet 1 3 3 1"
+AB/CD
+
+trying "swimmeet 1 3 3 2"
+AB/CD
+
+trying "swimmeet 1 3 3 3"
+AB/CD
+
+trying "swimmeet 2 1 1 1"
+AB/C/D
+
+trying "swimmeet 2 1 1 2"
+AB/CD
+
+trying "swimmeet 2 1 1 3"
+AB/CD
+
+trying "swimmeet 2 1 2 1"
+AB/CD
+
+trying "swimmeet 2 1 2 2"
+AB/C/D
+
+trying "swimmeet 2 1 2 3"
+AB/CD
+
+trying "swimmeet 2 1 3 1"
+AB/CD
+
+trying "swimmeet 2 1 3 2"
+AB/CD
+
+trying "swimmeet 2 1 3 3"
+AB/CD
+
+trying "swimmeet 2 2 1 1"
+AC/BD
+
+trying "swimmeet 2 2 1 2"
+AC/B/D
+
+trying "swimmeet 2 2 1 3"
+AC/BD
+
+trying "swimmeet 2 2 2 1"
+AD/B/C
+
+trying "swimmeet 2 2 2 2"
+A/B/C/D
+
+trying "swimmeet 2 2 2 3"
+AD/B/C
+
+trying "swimmeet 2 2 3 1"
+AC/BD
+
+trying "swimmeet 2 2 3 2"
+AC/B/D
+
+trying "swimmeet 2 2 3 3"
+AC/BD
+
+trying "swimmeet 2 3 1 1"
+AC/BD
+
+trying "swimmeet 2 3 1 2"
+AB/CD
+
+trying "swimmeet 2 3 1 3"
+AB/CD
+
+trying "swimmeet 2 3 2 1"
+AB/CD
+
+trying "swimmeet 2 3 2 2"
+AB/C/D
+
+trying "swimmeet 2 3 2 3"
+AB/CD
+
+trying "swimmeet 2 3 3 1"
+AB/CD
+
+trying "swimmeet 2 3 3 2"
+AB/CD
+
+trying "swimmeet 2 3 3 3"
+AB/CD
+
+trying "swimmeet 3 1 1 1"
+AB/C/D
+
+trying "swimmeet 3 1 1 2"
+AB/CD
+
+trying "swimmeet 3 1 1 3"
+AB/CD
+
+trying "swimmeet 3 1 2 1"
+AB/CD
+
+trying "swimmeet 3 1 2 2"
+AC/BD
+
+trying "swimmeet 3 1 2 3"
+AB/CD
+
+trying "swimmeet 3 1 3 1"
+AB/CD
+
+trying "swimmeet 3 1 3 2"
+AB/CD
+
+trying "swimmeet 3 1 3 3"
+AB/CD
+
+trying "swimmeet 3 2 1 1"
+AC/BD
+
+trying "swimmeet 3 2 1 2"
+AB/CD
+
+trying "swimmeet 3 2 1 3"
+AB/CD
+
+trying "swimmeet 3 2 2 1"
+AB/CD
+
+trying "swimmeet 3 2 2 2"
+AB/C/D
+
+trying "swimmeet 3 2 2 3"
+AB/CD
+
+trying "swimmeet 3 2 3 1"
+AB/CD
+
+trying "swimmeet 3 2 3 2"
+AB/CD
+
+trying "swimmeet 3 2 3 3"
+AB/CD
+
+trying "swimmeet 3 3 1 1"
+AC/BD
+
+trying "swimmeet 3 3 1 2"
+AB/CD
+
+trying "swimmeet 3 3 1 3"
+AB/CD
+
+trying "swimmeet 3 3 2 1"
+AB/CD
+
+trying "swimmeet 3 3 2 2"
+AC/BD
+
+trying "swimmeet 3 3 2 3"
+AB/CD
+
+trying "swimmeet 3 3 3 1"
+AB/CD
+
+trying "swimmeet 3 3 3 2"
+AB/CD
+
+trying "swimmeet 3 3 3 3"
+AB/CD
+

@@ -1,0 +1,17 @@
+#/bin/bash -f
+
+rm -f results
+
+for A in 1 2 3 ; do
+    for B in 1 2 3 ; do
+	for C in 1 2 3 ; do
+	    for D in 1 2 3 ; do
+		echo "trying \"swimmeet $A $B $C $D\"" >> results
+	    	./swimmeet $A $B $C $D >> results
+		# blank line to simplify diff output
+		echo "" >> results
+	    done
+	done
+    done
+done
+

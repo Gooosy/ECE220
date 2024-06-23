@@ -1,0 +1,21 @@
+Functionality (65%)
+FIND_PARENT
+10/10 - produces correct output in R1 for any positive number provided in R0
+5/5     - preserves all registers except R1 and R7 when called
+FILL_STACK
+5/5     - pushes sentinel to the stack first
+10/10 - pushes correct sequence and number of values to the stack
+5/5     - preserves all registers except R6 and R7 when called
+PRINT_PATH
+15/15 - prints the correct output string
+10/10 - pops the correct number of values from the stack, including sentinel
+5/5     - preserves all registers except R6 and R7 when called
+
+Style (10%)
+10/10 - PRINT_PATH holds "A" (ASCII character #48) in a register to simplify printing.
+
+Comments, Clarity, and Write-up (25%)
+5/5     - each subroutine has a paragraph explaining the subroutine's purpose and interface
+(these are given to you; you just need to document your work)
+10/10 - each subroutine includes a table explaining how each register is used
+10/10 - code is clear and well-commented

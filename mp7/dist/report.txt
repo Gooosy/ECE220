@@ -1,0 +1,642 @@
+PUT YOUR MP7 REPORT IN THIS FILE.
+
+1.REVERSE
+    a.what the code does?
+        take space seperated strings from terminal as argument
+        print prompt words
+        "9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+        What's on the stack now?"
+        then print the all the strings in reverse order & their length one by one
+    b.how it works?
+        First, main function get argument from terminal 
+        Second, check whether the parameter number > 2 (at least one string)  
+                the first argument is excuitable file name
+        Third, use for loop to reverse each string (seperated by space when input from terminal)
+                i start from 1 (skip the excuitable file name)
+                print prompt words
+                call the function print_reverse to print the string in reverse order and calculate length
+
+        For the function print_reverse:
+            First, check whether it is the end of the string(if yes return 0, indicate the length is 0) 
+                    -- here it seems that the rest argument hasn't been initialize
+            Second, use recursion, call print_reverse it self with the pointer increase by one, pointing to next character
+            Third, print the current character 
+                    ** the order of second and third step guarantee that the character is print in reverse order
+            Finally, return the rest + 1 (length of string), here + 1 indicate current character s points to 
+    c.what arguments does it take?
+        main: int argc, const char* const argv[]
+        print_reverse: const char* s
+
+
+
+    TEST CASES
+
+    a.correct
+    The first test is for if statement (full code coverage)
+        input  >> ./prev
+        output >> syntax: ./prev <string1> <string2> ...
+
+    The second test for simple case
+        input   >>./prev hi
+        output  >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"hi" reversed is "ih" (length 2)
+    
+    The third test for number string
+        input   >>./prev 123
+        output  >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"123" reversed is "321" (length 3)
+    
+    b.wrong
+    The first test for empty string
+        input   >>./prev ""
+
+        desired >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"" reversed is "" (length 0)
+        
+        actual  >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"" reversed is "" (length 32759)
+    
+    The second test for more than one string
+        input   >>./prev hi hi
+
+        desired >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"hi" reversed is "ih" (length 2)
+                >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"hi" reversed is "ih" (length 2)
+
+        actual  >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"hi" reversed is "ih" (length 2)
+                >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"hi" reversed is "ih" (length 32761)
+        
+    The third case test for long string
+        input   >>./prev gongsiyuan
+
+        desired >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"gongsiyuan" reversed is "nauyisgnog" (length 10)
+        
+        actual  >>9 8 7 6 5 4 3 2 1 0
+                >>What's on the stack now?
+
+                >>"gongsiyuan" reversed is "nauyisgnog" (length 32770)
+    
+    GDB Debug
+
+    (gdb) b pr_buggy.c:40
+    Breakpoint 1 at 0x100003dac: file pr_buggy.c, line 40.
+    (gdb) b pr_buggy.c:52
+    Breakpoint 2 at 0x100003ded: file pr_buggy.c, line 52.
+    (gdb) c
+    The program is not being run.
+    (gdb) r gongsiyuan
+    Starting program: /Users/gongsiyuan/Desktop/ece220_mps/mp7/dist/printRev/prev gongsiyuan
+    [New Thread 0x2703 of process 45358]
+    [New Thread 0x2403 of process 45358]
+    [Thread 0x2703 of process 45358 exited]
+    warning: unhandled dyld version (17)
+    9 8 7 6 5 4 3 2 1 0
+    What's on the stack now?
+
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff844 "gongsiyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff845 "ongsiyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $1 = 32759 //when we find NULL string, the return value rest should be 0 not the 32759 here
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff846 "ngsiyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $2 = 0  //this value is correct and different $1, strange!
+    (gdb) c 
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff847 "gsiyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $3 = 0 //correct
+    (gdb) c 
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff848 "siyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $4 = 32760 //wrong and another new value different from $1 $2 $3 this indicates that the value of rest is unpredictable
+    (gdb) c 
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff849 "iyuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $5 = 32760 
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff84a "yuan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $6 = 1 //indeed unpredictable so the problem maybe that the rest hasn't been initialized
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff84b "uan")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $7 = 32760
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff84c "an")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $8 = 32760
+    (gdb) c 
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff84d "n")
+        at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $9 = 0
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 1, print_reverse (s=0x7ff7bfeff84e "") at pr_buggy.c:40
+    40	    if ('\0' == *s) {
+    (gdb) p rest
+    $10 = 32760
+    (gdb) c
+    Continuing.
+
+    Thread 2 hit Breakpoint 2, print_reverse (s=0x7ff7bfeff84d "n")
+        at pr_buggy.c:52
+    52	    return (rest + 1);
+    (gdb) p rest
+    $11 = 32760
+   //the return val is wrong and equals $10 = 32760, so the problem may come from the initial value of rest
+
+    Analysis
+        The first time we excute the code and reach the breakpoint at "if ('\0' == *s) {"
+        the desired value of rest should be 0, indicating the length of NULL string is 0
+        however the print show that the argument rest is sometimes 0 sometimes other unrelevant value
+        this indicates that rest hasn't been initialized 
+        so the initial value of rest is unpredictable -- it containing BITS!
+        when reaching the breakpoint at return statement the function return wrong result 
+
+    FIX
+        change pr_buggy.c:41 to "return 0" //indicate that when the pointer points to NULL, the length of string is 0
+        or change pr_buggy.c:36 to "int32_t rest = 0;"
+
+2.PRIME_NUMBER
+    
+    CODE OUTPUT
+    >>> ./primeNumber > out1
+    >>> diff out out1       //here out is the output generated by Lumetta's code from webpage
+    
+    2a3
+    > 4 is prime.
+    4a6
+    > 9 is prime.
+    9a12
+    > 25 is prime.
+    15a19
+    > 49 is prime.
+    30a35
+    > 121 is prime.
+    39a45
+    > 169 is prime.
+    61a68
+    > 289 is prime.
+    72a80
+    > 361 is prime.
+    99a108
+    > 529 is prime.
+    146a156
+    > 841 is prime.
+    162a173
+    > 961 is prime.
+
+    pre-analysis before using GDB debug:
+        by observing these numbers we notice that 
+        they are all sqaure of prime numbers(2,3,5,7,11,13,17,19,23,29,31)
+        possible cause:
+        when iterating through divisors
+        isPrime function misses an equal sign when divisor = squareroot(num)
+    
+    GDB Debug
+
+    (gdb) b primeNumber.c:67
+    Breakpoint 1 at 0x1197: file primeNumber.c, line 67.  
+    
+    /* why I want to break at this point?
+    *the divides_evenly function is called by is_prime and can show infomation about is_prime
+    *I want to check the last value of divisor for iteration(for loop)
+    *if the program use squareroot(num) 
+    *then the last divisor for 9 should be 3 (after 2)
+    */
+
+    (gdb) r
+    Starting program: /home/siyuan123/Desktop/ece220_mps/mp7/dist/primeNumber/primeNumber 
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+    2 is prime.
+    3 is prime.
+    4 is prime.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=5) at primeNumber.c:67
+    67	    multiple = (value / divisor) * divisor;
+    (gdb) c
+    Continuing.
+    5 is prime.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=6) at primeNumber.c:67
+    67	    multiple = (value / divisor) * divisor;
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=7) at primeNumber.c:67
+    67	    multiple = (value / divisor) * divisor;
+    (gdb) c
+    Continuing.
+    7 is prime.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=8) at primeNumber.c:67
+    67	    multiple = (value / divisor) * divisor;
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=9) at primeNumber.c:67
+    67	    multiple = (value / divisor) * divisor;
+    (gdb) c
+    Continuing.
+    9 is prime.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=10) at primeNumber.c:67
+    67     multiple = (value / divisor) * divisor;
+    (gdb) 
+    Continuing.
+
+    Breakpoint 1, divides_evenly (divisor=2, value=11) at primeNumber.c:67
+    67     multiple = (value / divisor) * divisor;
+    (gdb) 
+    Continuing.
+
+    Breakpoint 1, divides_evenly (divisor=3, value=11) at primeNumber.c:67
+    67     multiple = (value / divisor) * divisor;
+    (gdb) 
+    Continuing.
+    11 is prime. //from 11 we could see that the last divisor goes to 3 
+    
+    //this prove that the code misses = when checking the edge cases
+
+    Possible Error Code
+    int32_t
+    is_prime (int32_t num){
+        int32_t divisor;
+        for (divisor = 2; num > divisor*divisor; divisor++) {
+                if (divides_evenly (divisor, num)) {
+                    return 0;
+            }
+        }
+        return 1;
+    }
+
+    FIX
+    is_prime (int32_t num){
+        int32_t divisor;
+        for (divisor = 2; num >= divisor*divisor; divisor++) {
+                if (divides_evenly (divisor, num)) {
+                    return 0;
+            }
+        }
+        return 1;
+    }
+
+
+3.SORT
+    a.what the code does?
+        try to sort an array of numbers in ascending order use heap as data structure
+
+    b.how it works?(my guess)
+        First, set up heap in the input array
+        the main function will iterate from the last level of predecessor node(skip the leaf node without child)
+            start (array_size - 1) / 2 -- calculate predecessor
+            iterate variable minus 1 each time till it equals to index 0
+            in every iteration call heapify to construct heap for that nodes
+        Second, use heap to sort 
+        iterate till the heap length = 0
+        in every iteration, exchange the heap root node with the last node in the heap (root nodes always contain the largest number)
+                            and minus the length by 1
+                            then call heapify for the root node to maintain heap property
+    
+    c.what arguments does it take?
+        the array need to be sort 
+        the array size
+
+
+    TEST CASES
+    a.correct
+    input   >>./sort test1.txt
+    content in test1.txt
+    20
+    1 22 3 45 51 96 117 18 29 13 9 100 41 23 12 99 15 19 58 97
+
+    output  >>1 3 9 12 13 15 18 19 22 23 29 41 45 51 58 96 97 99 100 117 
+
+    input   >>./sort test1.txt
+    content in test1.txt
+    5
+    1 2 3 4 5
+
+    output  >>1 2 3 4 5 
+
+    input   >>./sort test1.txt
+    content in test1.txt //try test negative number for this test
+    7
+    0 -1 2 1 1 0 4
+
+    output  >>-1 0 0 1 1 2 4
+
+
+    b.wrong
+    input   >>./sort test1.txt
+    content in test1.txt
+    20
+    1 22 3 45 51 96 117 18 29 13 9 100 41 23 12 99 15 19 58 97
+
+    output  >>1 3 9 12 13 15 18 19 22 23 29 41 45 51 58 96 96 97 99 100 
+
+    /*quite strange! same input generate different output
+    *the code is unstable
+    *the largest number 117 misses and the 96 is repeated*/
+
+    input   >>./sort test1.txt
+    content in test1.txt
+    5
+    1 2 3 4 5
+
+    output  >>1 2 3 4 4 
+
+    input   >>./sort test1.txt
+    content in test1.txt //try test negative number for this test
+    7
+    0 -1 2 1 1 0 4
+
+    output  >>-1 0 0 0 1 1 2
+
+    //same test case, sometimes correct sometimes wrong the code behaviour is unstable
+
+    GDB Debug
+
+    First run
+    content in test1.txt
+    5
+    3 1 4 5 2
+
+    (gdb) b sort.c:7
+    Breakpoint 1 at 0x11f7: file sort.c, line 7.
+    (gdb) b sort.c:33
+    Breakpoint 2 at 0x1309: file sort.c, line 33.
+    (gdb) r test1.txt
+    Starting program: /home/siyuan123/Desktop/ece220_mps/mp7/dist/sort/sort test1.txt
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=1) at sort.c:33
+    33     if (largest != i)
+    (gdb) p *(arr + 0)
+    $1 = 3
+    (gdb) p *(arr + 1)
+    $2 = 1
+    (gdb) p *(arr + 2)
+    $3 = 4
+    (gdb) p *(arr + 3)
+    $4 = 5
+    (gdb) p *(arr + 4)
+    $5 = 2
+    (gdb) p *(arr + 5)          //here this result kind of surprise me because *(arr + 5) should be out of the arr index
+    $6 = 5                      //and should containing BITS, the BITS here happen to be 5?
+    (gdb) p *(arr + 6)
+    $7 = 129889                 //BITS
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, swap (a=0x55555555a494, b=0x55555555a49c) at sort.c:7
+    7 }
+    (gdb) p *a
+    $8 = 5
+    (gdb) p *b
+    $9 = 1
+    (gdb) c
+    Continuing.
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=3) at sort.c:33
+    33     if (largest != i)
+    (gdb) p largest
+    $10 = 3
+    (gdb) p i
+    $11 = 3
+    (gdb) c
+    Continuing.
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=0) at sort.c:33
+    33     if (largest != i)
+    (gdb) p largest
+    $12 = 1
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, swap (a=0x55555555a490, b=0x55555555a494) at sort.c:7
+    7 }
+    (gdb) p *a
+    $13 = 5
+    (gdb) p *b
+    $14 = 3
+    (gdb) c
+    Continuing.
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=1) at sort.c:33
+    33     if (largest != i)
+    (gdb) p largest
+    $15 = 1
+    (gdb) p i
+    $16 = 1
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, swap (a=0x55555555a490, b=0x55555555a4a4) at sort.c:7
+    7 }
+    (gdb) p *a
+    $17 = 5
+    (gdb) p *b
+    $18 = 5
+    (gdb) c
+    Continuing.
+
+    /* Strange here! first notice that why swap 5 with 5?
+    * then look at the address of pointer a and pointer b
+    * the difference is 0x14 -> 20 in decimal number 
+    * because the a  = arr (the root node)
+    * b = arr + 5 (int is 32 bits length and use 4 bytes each)
+    * error behaviour swap the root node with something out of the array 
+    * fortunately for this time *(arr + 5) happen to be 5
+    * won't affect the result
+    */
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=0) at sort.c:33
+    33     if (largest != i)
+    (gdb) p largest
+    $19 = 0
+    (gdb) s
+    40 }
+    (gdb) s
+    0x0000555555555469 in heapSort ()
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, swap (a=0x55555555a490, b=0x55555555a4a0) at sort.c:7
+    7 }
+    (gdb) p *a
+    $20 = 2
+    (gdb) p *b
+    $21 = 5
+    
+    //the next part were omitted because I didn't see anything strange there
+    //just swap the root with the last node and decrease heap length one by one
+
+    The Second Run, this time the code produce wrong result
+    input is all the same as First Run
+
+    (gdb) break heapify 
+    Breakpoint 1 at 0x1271: file sort.c, line 20.
+    (gdb) cond 1 (n == 5 && i==0)
+    (gdb) b sort.c:33
+    Breakpoint 2 at 0x1309: file sort.c, line 33.
+    (gdb) r test1.txt
+    Starting program: /home/siyuan123/Desktop/ece220_mps/mp7/dist/sort/sort test1.txt
+    [Thread debugging using libthread_db enabled]
+    Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=1) at sort.c:33
+    33	    if (largest != i)
+    (gdb) p *(arr + 0)
+    $1 = 3
+    (gdb) p *(arr + 1)
+    $2 = 1
+    (gdb) p *(arr + 2)
+    $3 = 4
+    (gdb) p *(arr + 3)
+    $4 = 5
+    (gdb) p *(arr + 4)
+    $5 = 2
+    (gdb) p *(arr + 5)   //now arr[5] contain another number not equals to the largest one
+    $6 = 3
+    (gdb) p *(arr + 6)
+    $7 = 129889
+    (gdb) enable 2
+    (gdb) c
+    Continuing.
+
+    Breakpoint 2, heapify (arr=0x55555555a490, n=5, i=3) at sort.c:33
+    33	    if (largest != i)
+    (gdb) delete breakpoint 2
+    (gdb) c
+    Continuing.
+
+    Breakpoint 1, heapify (arr=0x55555555a490, n=5, i=0) at sort.c:20
+    20	    int largest = i;  // Initialize largest as root
+    (gdb) s
+    21	    int l = 2*i + 1;  // left = 2*i + 1
+    (gdb) 
+    22	    int r = 2*i + 2;  // right = 2*i + 2
+    (gdb) 
+    25	    if (l < n && arr[l] > arr[largest])
+    (gdb) 
+    26	        largest = l;
+    (gdb) 
+    29	    if (r < n && arr[r] > arr[largest])
+    (gdb) 
+    33	    if (largest != i)
+    (gdb) 
+    35	        swap(&arr[i], &arr[largest]);
+    (gdb) p &arr[i]
+    $8 = (int *) 0x55555555a490
+    (gdb) p &arr[largest]
+    $9 = (int *) 0x55555555a494    //swap arr with arr + 5, this step make no sense and loss the largest number in this case
+    (gdb) p *arr[i]
+    Cannot access memory at address 0x3
+    (gdb) p *(arr + i)
+    $10 = 3
+    (gdb) p *(arr + largest)
+    $11 = 5
+
+    Analysis
+        the code mistakenly assign some value to arr[size](maybe not assigned just happen to be BITS that also in the array)
+        but this space is not belong to arr as the largest index should be size - 1
+        and when the array was built up as a heap
+        the code exchange the root with the arr[size] 
+        the will sometimes make the largest value loss 
+        and sometimes if the arr[size] happens to contain the content same as largest number
+        this code will produce the correct result
+
+    FIX
+        after set up the heap, the code start to sort the heap 
+        fixing by just omit the step of exchange the root array[0] with array[size]
+        please start exchange from array[size - 1]
+        the correct code may look like this:
+        for(int32_t i = 0; i < num; i++){
+            swap(&array[0], &array[num - 1 -i]);
+            heapify(array, num - 1 - i , 0); 
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+            

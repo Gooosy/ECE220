@@ -1,0 +1,8 @@
+9 8 7 6 5 4 3 2 1 0
+What's on the stack now?
+
+"hi" reversed is "ih" (length 2)
+9 8 7 6 5 4 3 2 1 0
+What's on the stack now?
+
+"hi" reversed is "ih" (length 32761)

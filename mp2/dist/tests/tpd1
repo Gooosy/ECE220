@@ -1,0 +1,10 @@
+f graph1index
+f graph1heap
+f graph1dist
+f mp2
+f test_pd
+b s thehalt
+r r0 0005
+c
+d 6FFE 7037
+d 7FFE 8037

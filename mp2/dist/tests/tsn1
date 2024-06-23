@@ -1,0 +1,10 @@
+f graph1index
+f graph1heap
+f mp2
+f test_sn
+b s thehalt
+r r0 0007
+r r1 0020
+c
+d 6FFE 7037
+d 7FFE 8037

@@ -1,0 +1,10 @@
+compile success
+Score of SWAP_ELEMENTS is 10/10
+Score of PERCOLATE_DOWN is 35/35
+Score of GET_CLOEST is 20/20
+
+5/5 - preserves all registers except R7 when called 
+5/5 - Percolate down uses only two distance comparisons
+5/5 - each subroutine has a paragraph explaining the subroutine’s purpose
+10/10 - each subroutine includes a table explaining how each register is used 
+10/10 - code is clear and well-commented 
